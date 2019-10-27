@@ -3,10 +3,6 @@ import MonacoEditor from "react-monaco-editor";
 import PropTypes from "prop-types";
 
 export const Editor = props => {
-  const editorDidMount = (editor, monaco) => {
-    editor.focus();
-  };
-
   const onChange = (newValue, e) => {
     props.setCode(newValue);
     props.setTouched(true);
@@ -25,7 +21,6 @@ export const Editor = props => {
       value={props.code}
       options={options}
       onChange={onChange}
-      editorDidMount={editorDidMount}
     />
   );
 };

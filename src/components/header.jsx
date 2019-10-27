@@ -40,32 +40,42 @@ export const targetLanguages = {
   typescriptNodeClient: {
     label: "Typescript for Node Client",
     key: "typescript_nodeclient",
-    monaco: "typescript"
+    monaco: "typescript",
+    fileExt: "ts"
   },
   typescriptNodeServer: {
     label: "Typescript for Node Server",
     key: "typescript_nodeserver",
-    monaco: "typescript"
+    monaco: "typescript",
+    fileExt: "ts"
   },
   javaAndroid: {
     label: "Java for Android",
     key: "java_android",
-    monaco: "java"
+    monaco: "java",
+    fileExt: "java"
   },
   swiftIos: {
     label: "Swift for iOS",
     key: "swift_ios",
-    monaco: "swift"
+    monaco: "swift",
+    fileExt: "swift"
   }
 };
 
 export const Header = props => {
+  const handleOnClick = targetLanguage => {
+    if (props.selectedTargetLanguage !== targetLanguage) {
+      props.setSelectedTargetLanguage(targetLanguage);
+      // props.compile();
+    }
+  };
+
   const getItems = () => {
     return [
       {
         key: "selectTargetLanguage",
         name: props.selectedTargetLanguage.label,
-        // cacheKey: "myCacheKey", // changing this key will invalidate this item's cache
         iconProps: {
           iconName: "BullseyeTarget"
         },
@@ -79,10 +89,7 @@ export const Header = props => {
                 iconName: "FileCode"
               },
               ["data-automation-id"]: "typescriptNodeClientButton",
-              onClick: () =>
-                props.setSelectedTargetLanguage(
-                  targetLanguages.typescriptNodeClient
-                )
+              onClick: () => handleOnClick(targetLanguages.typescriptNodeClient)
             },
             {
               key: targetLanguages.typescriptNodeServer.key,
@@ -91,10 +98,7 @@ export const Header = props => {
                 iconName: "FileCode"
               },
               ["data-automation-id"]: "typescriptNodeServerButton",
-              onClick: () =>
-                props.setSelectedTargetLanguage(
-                  targetLanguages.typescriptNodeServer
-                )
+              onClick: () => handleOnClick(targetLanguages.typescriptNodeServer)
             },
             {
               key: targetLanguages.javaAndroid.key,
@@ -103,8 +107,7 @@ export const Header = props => {
                 iconName: "FileCode"
               },
               ["data-automation-id"]: "javaAndroidButton",
-              onClick: () =>
-                props.setSelectedTargetLanguage(targetLanguages.javaAndroid)
+              onClick: () => handleOnClick(targetLanguages.javaAndroid)
             },
             {
               key: targetLanguages.swiftIos.key,
@@ -113,8 +116,7 @@ export const Header = props => {
                 iconName: "FileCode"
               },
               ["data-automation-id"]: "swiftIosButton",
-              onClick: () =>
-                props.setSelectedTargetLanguage(targetLanguages.swiftIos)
+              onClick: () => handleOnClick(targetLanguages.swiftIos)
             }
           ]
         }
@@ -131,5 +133,6 @@ Header.propTypes = {
     key: PropTypes.string,
     monaco: PropTypes.string
   }),
-  setSelectedTargetLanguage: function(selectedTargetLanguage) {}
+  setSelectedTargetLanguage: function(selectedTargetLanguage) {},
+  compile: function() {}
 };

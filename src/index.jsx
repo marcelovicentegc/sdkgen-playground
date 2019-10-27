@@ -43,14 +43,37 @@ const App = () => {
   const [targetLanguage, setTargetLanguage] = React.useState(
     targetLanguages.typescriptNodeClient
   );
+  const [error, setError] = React.useState();
   const [touched, setTouched] = React.useState(false);
   const [fetched, setFetched] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
 
   const compile = () => {
-    // write sdkgenCode to playground.sdkgen (server-side)
-    // and then call the sdkgen script (sdkgen.sh)(on server-side)
-    // with the file format and the target as arguments
+    setIsLoading(true);
+    fetch("http://localhost:8080/gen", {
+      method: "POST",
+      headers: {
+        Accept: "application/json"
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        Sdkgen: sdkgenCode,
+        Target: targetLanguage.key,
+        TargetFileExtension: targetLanguage.fileExt
+      })
+    })
+      .then(response => {
+        if (response.status === 500) {
+          setError("Syntax error");
+          return;
+        }
+
+        response.json().then(targetCode => {
+          setTargetCode(targetCode);
+        });
+      })
+      .catch(error => console.log("error: ", error))
+      .finally(() => setIsLoading(false));
   };
 
   const fetchAndCompileExampleCodes = () => {
@@ -78,6 +101,7 @@ const App = () => {
         setSelectedTargetLanguage={selectedTargetLanguage =>
           setTargetLanguage(selectedTargetLanguage)
         }
+        compile={compile}
       />
       <AppWrapper>
         <Editor
@@ -87,11 +111,7 @@ const App = () => {
           setTouched={flag => setTouched(flag)}
         />
         <CompileTriggerer onClick={compile} isLoading={isLoading} />
-        <Editor
-          code={targetCode}
-          setCode={code => setTargetCode(code)}
-          target={targetLanguage.monaco}
-        />
+        <Editor code={targetCode} target={targetLanguage.monaco} />
       </AppWrapper>
     </>
   );
