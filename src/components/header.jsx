@@ -64,13 +64,6 @@ export const targetLanguages = {
 };
 
 export const Header = props => {
-  const handleOnClick = targetLanguage => {
-    if (props.selectedTargetLanguage !== targetLanguage) {
-      props.setSelectedTargetLanguage(targetLanguage);
-      // props.compile();
-    }
-  };
-
   const getItems = () => {
     return [
       {
@@ -89,7 +82,10 @@ export const Header = props => {
                 iconName: "FileCode"
               },
               ["data-automation-id"]: "typescriptNodeClientButton",
-              onClick: () => handleOnClick(targetLanguages.typescriptNodeClient)
+              onClick: () =>
+                props.setSelectedTargetLanguage(
+                  targetLanguages.typescriptNodeClient
+                )
             },
             {
               key: targetLanguages.typescriptNodeServer.key,
@@ -98,7 +94,10 @@ export const Header = props => {
                 iconName: "FileCode"
               },
               ["data-automation-id"]: "typescriptNodeServerButton",
-              onClick: () => handleOnClick(targetLanguages.typescriptNodeServer)
+              onClick: () =>
+                props.setSelectedTargetLanguage(
+                  targetLanguages.typescriptNodeServer
+                )
             },
             {
               key: targetLanguages.javaAndroid.key,
@@ -107,7 +106,8 @@ export const Header = props => {
                 iconName: "FileCode"
               },
               ["data-automation-id"]: "javaAndroidButton",
-              onClick: () => handleOnClick(targetLanguages.javaAndroid)
+              onClick: () =>
+                props.setSelectedTargetLanguage(targetLanguages.javaAndroid)
             },
             {
               key: targetLanguages.swiftIos.key,
@@ -116,7 +116,8 @@ export const Header = props => {
                 iconName: "FileCode"
               },
               ["data-automation-id"]: "swiftIosButton",
-              onClick: () => handleOnClick(targetLanguages.swiftIos)
+              onClick: () =>
+                props.setSelectedTargetLanguage(targetLanguages.swiftIos)
             }
           ]
         }
@@ -133,6 +134,5 @@ Header.propTypes = {
     key: PropTypes.string,
     monaco: PropTypes.string
   }),
-  setSelectedTargetLanguage: function(selectedTargetLanguage) {},
-  compile: function() {}
+  setSelectedTargetLanguage: function(selectedTargetLanguage) {}
 };

@@ -35,7 +35,10 @@ export const CompileTriggerer = props => {
           <Spinner />
         </div>
       ) : (
-        <Icon iconName={"CaretSolidRight"} onClick={props.onClick}></Icon>
+        <Icon
+          iconName={"CaretSolidRight"}
+          onClick={() => props.onClick(props.targetLanguage)}
+        ></Icon>
       )}
     </CompileTriggererButtonWrapper>
   );
@@ -43,5 +46,10 @@ export const CompileTriggerer = props => {
 
 CompileTriggerer.propTypes = {
   isLoading: PropType.bool,
+  targetLanguage: PropType.shape({
+    label: PropType.string,
+    key: PropType.string,
+    monaco: PropType.string
+  }),
   onClick: function() {}
 };

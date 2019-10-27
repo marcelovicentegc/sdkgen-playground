@@ -48,7 +48,14 @@ const App = () => {
   const [fetched, setFetched] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const compile = () => {
+  const handleTargetLanguageSelection = currentTargetLanguage => {
+    if (targetLanguage !== currentTargetLanguage) {
+      setTargetLanguage(currentTargetLanguage);
+      compile(currentTargetLanguage);
+    }
+  };
+
+  const compile = targetLanguage => {
     setIsLoading(true);
     fetch("http://localhost:8080/gen", {
       method: "POST",
@@ -98,10 +105,7 @@ const App = () => {
       <GlobalStyle />
       <Header
         selectedTargetLanguage={targetLanguage}
-        setSelectedTargetLanguage={selectedTargetLanguage =>
-          setTargetLanguage(selectedTargetLanguage)
-        }
-        compile={compile}
+        setSelectedTargetLanguage={handleTargetLanguageSelection}
       />
       <AppWrapper>
         <Editor
@@ -110,7 +114,11 @@ const App = () => {
           setCode={code => setSdkgenCode(code)}
           setTouched={flag => setTouched(flag)}
         />
-        <CompileTriggerer onClick={compile} isLoading={isLoading} />
+        <CompileTriggerer
+          onClick={compile}
+          isLoading={isLoading}
+          targetLanguage={targetLanguage}
+        />
         <Editor code={targetCode} target={targetLanguage.monaco} />
       </AppWrapper>
     </>
