@@ -4,6 +4,7 @@ import { Editor } from "./components/editor";
 import styled, { createGlobalStyle } from "styled-components";
 import { CompileTriggerer } from "./components/compileTriggerer";
 import { initializeIcons } from "office-ui-fabric-react/lib/Icons";
+import { Header, targetLanguages } from "./components/header";
 
 initializeIcons();
 
@@ -26,7 +27,9 @@ const GlobalStyle = createGlobalStyle`
 const AppWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  height: 100%;
+  padding-top: 12px;
+  background-color: #1e1e1e;
+  height: calc(100% - 56px);
 `;
 
 const App = () => {
@@ -37,7 +40,9 @@ const App = () => {
   });
   const [sdkgenCode, setSdkgenCode] = React.useState();
   const [targetCode, setTargetCode] = React.useState();
-  const [targetLanguage, setTargetLanguage] = React.useState();
+  const [targetLanguage, setTargetLanguage] = React.useState(
+    targetLanguages.typescriptNodeClient
+  );
   const [touched, setTouched] = React.useState(false);
   const [fetched, setFetched] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -55,7 +60,7 @@ const App = () => {
         response.json().then(exampleCode => {
           setSdkgenCode(exampleCode.Sdkgen);
           setTargetCode(exampleCode.Target);
-          setTargetLanguage("typescript");
+          setTargetLanguage(targetLanguages.typescriptNodeClient);
         });
       })
       .catch(error => console.log("error: ", error))
@@ -68,6 +73,12 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
+      <Header
+        selectedTargetLanguage={targetLanguage}
+        setSelectedTargetLanguage={selectedTargetLanguage =>
+          setTargetLanguage(selectedTargetLanguage)
+        }
+      />
       <AppWrapper>
         <Editor
           target="sdkgen"
@@ -79,7 +90,7 @@ const App = () => {
         <Editor
           code={targetCode}
           setCode={code => setTargetCode(code)}
-          target={targetLanguage}
+          target={targetLanguage.monaco}
         />
       </AppWrapper>
     </>

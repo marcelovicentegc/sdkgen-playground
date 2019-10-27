@@ -6,7 +6,7 @@ import { Spinner } from "office-ui-fabric-react";
 
 const CompileTriggererButtonWrapper = styled.div`
   position: absolute;
-  top: 30px;
+  top: 16px;
   right: calc(50% - 22.5px);
   height: 55px;
   width: 55px;
