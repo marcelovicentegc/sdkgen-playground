@@ -55,6 +55,12 @@ export const targetLanguages = {
     monaco: "java",
     fileExt: "java"
   },
+  kotlinAndroid: {
+    label: "Kotlin for Android",
+    key: "kt_android",
+    monaco: "java",
+    fileExt: "kt"
+  },
   swiftIos: {
     label: "Swift for iOS",
     key: "swift_ios",
@@ -108,6 +114,16 @@ export const Header = props => {
               ["data-automation-id"]: "javaAndroidButton",
               onClick: () =>
                 props.setSelectedTargetLanguage(targetLanguages.javaAndroid)
+            },
+            {
+              key: targetLanguages.kotlinAndroid.key,
+              name: targetLanguages.kotlinAndroid.label,
+              iconProps: {
+                iconName: "FileCode"
+              },
+              ["data-automation-id"]: "kotlinAndroidButton",
+              onClick: () =>
+                props.setSelectedTargetLanguage(targetLanguages.kotlinAndroid)
             },
             {
               key: targetLanguages.swiftIos.key,
