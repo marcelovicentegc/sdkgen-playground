@@ -8,6 +8,7 @@ import { initializeIcons } from "office-ui-fabric-react/lib/Icons";
 import { Header, targetLanguages } from "./components/header";
 import { Notification } from "./components/notification";
 import { MessageBarType } from "office-ui-fabric-react";
+import { SEO } from "./components/seo";
 
 initializeIcons();
 
@@ -134,6 +135,7 @@ const App = memo(() => {
 
   return (
     <>
+      <SEO />
       <GlobalStyle />
       <Header
         selectedTargetLanguage={targetLanguage}
