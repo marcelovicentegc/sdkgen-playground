@@ -34,6 +34,10 @@ const AppWrapper = styled.div`
   padding-top: 12px;
   background-color: #1e1e1e;
   height: calc(100% - ${props => (props.withNotification ? "88px" : "56px")});
+
+  > div {
+    overflow: auto;
+  }
 `;
 
 const App = memo(() => {
