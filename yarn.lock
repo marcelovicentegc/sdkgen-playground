@@ -747,16 +747,6 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.4.tgz#a87b4b04e5ae14a88d48ebef15015f6b7d1f5677"
   integrity sha512-kBa+cDHOR9jpRJ+kcGMsysrls0leukrm68DmFQoMIWQcXdr2cZvyvypWuGYT7U+9kAExUE7+T7r6G3C3A6L8MQ==
 
-"@fnando/cnpj@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@fnando/cnpj/-/cnpj-0.1.1.tgz#245c987fae5ebabd6869aaa05bd9af005032e375"
-  integrity sha512-lzV5HLTfo8ArEcV7Ahdg7UF1ar/YZM7bSRgvDKlaKU/YAVhREhCDO1AoIDJNuWkvTeqM4w/OknprtXd6cAZIGQ==
-
-"@fnando/cpf@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@fnando/cpf/-/cpf-0.1.1.tgz#b4170275fab4ba086f4e0b45bba6d70b0708fb0a"
-  integrity sha512-KWIk6uh7Z8fAefUmtcDrLfCUIf+gU1DVv6BkL/TgXO5oJFC82X6FferrvBQzVBSRNb+TFbd/na1R7PHRgynrkA==
-
 "@hot-loader/react-dom@^16.10.2":
   version "16.10.2"
   resolved "https://registry.yarnpkg.com/@hot-loader/react-dom/-/react-dom-16.10.2.tgz#91920442252acac6f343eef5df41aca333f7dcea"
@@ -780,37 +770,6 @@
   version "1.10.16"
   resolved "https://registry.yarnpkg.com/@microsoft/load-themed-styles/-/load-themed-styles-1.10.16.tgz#4762b89bd87e7ad47c170a30404eab8ca6f2c313"
   integrity sha512-S/d7Zx+ACN3Hu3BIAjWGefEu9xrLHUt2WRhd8WGJ3POkCQntCuyQmJhl72jJHFFGTKQc7iu3OCt4r7yTAOuwlQ==
-
-"@sdkgen/dart-generator@^1.0.14":
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/@sdkgen/dart-generator/-/dart-generator-1.0.14.tgz#351e55b89ff678b27c59c351047425fd812e8d7f"
-  integrity sha512-YgTqC2uXeieHKpsICppMpFF70HmyQHf6SMyAcj+c2AXf8DZhx2M0OE3KiKFwLo9FtLI74cjfZqJw7V8IDdN+qQ==
-  dependencies:
-    "@sdkgen/parser" "^1.0.19"
-
-"@sdkgen/node-runtime@^1.0.45":
-  version "1.0.45"
-  resolved "https://registry.yarnpkg.com/@sdkgen/node-runtime/-/node-runtime-1.0.45.tgz#7e1bc9a3fc669481902d30172039f65ad6fb02d6"
-  integrity sha512-nF0djttB6NBvYTAey265Ebo5KOlqQ/1eIt5v+/GgzqDcHjCJFY9aEo7IL19Aq7RdB8ESpveWkHnACi8jLe9BUg==
-  dependencies:
-    "@fnando/cnpj" "^0.1.1"
-    "@fnando/cpf" "^0.1.1"
-    "@sdkgen/dart-generator" "^1.0.14"
-    "@sdkgen/parser" "^1.0.25"
-    "@sdkgen/typescript-generator" "^1.0.29"
-    request-ip "^2.1.3"
-
-"@sdkgen/parser@^1.0.19", "@sdkgen/parser@^1.0.25":
-  version "1.0.25"
-  resolved "https://registry.yarnpkg.com/@sdkgen/parser/-/parser-1.0.25.tgz#e3ab1b0dc149b54210c06ec781b6bf848783964b"
-  integrity sha512-n2RX+MtOiPnlXlmK2OSwYb3OfhC9zPIxkcnsLfk8uh6QOFtq7I9L+gxLasz5lgN7B6XQL5YzxFDceisLYuLb+g==
-
-"@sdkgen/typescript-generator@^1.0.29":
-  version "1.0.29"
-  resolved "https://registry.yarnpkg.com/@sdkgen/typescript-generator/-/typescript-generator-1.0.29.tgz#5dd453661d752c91a7747bae7145a4f9a530dcba"
-  integrity sha512-0R4G24Fn1iHw/S+c6cdCd7LLQQ5a9fLh9xzRkqRRGJS2VBp5qvou1rS/6NN04vYFAqjzqENuPbSjPFdpyvQZJg==
-  dependencies:
-    "@sdkgen/parser" "^1.0.25"
 
 "@sheerun/mutationobserver-shim@^0.3.2":
   version "0.3.2"
@@ -3427,11 +3386,6 @@ is-wsl@^1.1.0:
   resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
   integrity sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
 
-is_js@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/is_js/-/is_js-0.9.0.tgz#0ab94540502ba7afa24c856aa985561669e9c52d"
-  integrity sha1-CrlFQFArp6+iTIVqqYVWFmnpxS0=
-
 isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
@@ -4839,13 +4793,6 @@ repeat-string@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
   integrity sha1-jcrkcOHIirwtYA//Sndihtp15jc=
-
-request-ip@^2.1.3:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/request-ip/-/request-ip-2.1.3.tgz#99ab2bafdeaf2002626e28083cb10597511d9e14"
-  integrity sha512-J3qdE/IhVM3BXkwMIVO4yFrvhJlU3H7JH16+6yHucadT4fePnR8dyh+vEs6FIx0S2x5TCt2ptiPfHcn0sqhbYQ==
-  dependencies:
-    is_js "^0.9.0"
 
 require-directory@^2.1.1:
   version "2.1.1"
